@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>輸入並顯示文字與選項</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>輸入並顯示文字與選項</h1>
+    <form id="inputForm">
+        <label for="userInput">輸入文字：</label>
+        <input type="text" id="userInput" name="userInput" required><br><br>
+        
+        <label for="userSelection">選擇一個選項：</label>
+        <select id="userSelection" name="userSelection" required>
+            <option value="選項1">選項1</option>
+            <option value="選項2">選項2</option>
+            <option value="選項3">選項3</option>
+        </select><br><br>
+        
+        <button type="submit">提交</button>
+    </form>
+
+    <div class="output" id="output"></div>
+
+    <script>
+        document.getElementById('inputForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 防止表單提交
+            
+            const userInput = document.getElementById('userInput').value; // 取得使用者輸入
+            const userSelection = document.getElementById('userSelection').value; // 取得使用者選擇
+            
+            document.getElementById('output').innerText = `你輸入的文字是：${userInput}，你選擇的選項是：${userSelection}`; // 顯示輸入的文字和選擇的選項
+        });
+    </script>
+</body>
+</html>
